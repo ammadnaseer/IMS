@@ -7,10 +7,12 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Repository
 public interface ProductRepository extends JpaRepository<ProductEntity, String> {
-
-    @Query("Select * from product where name = ?1")
-    Optional<List<ProductEntity>> findByProductName(String name);
+    Optional<List<ProductEntity>> findByName(String name);
+    Optional<List<String>> findAllDistinctByName(String name);
+    @Query("SELECT DISTINCT name AS productName FROM  ProductEntity product")
+    Set<String> findAllName();
 }

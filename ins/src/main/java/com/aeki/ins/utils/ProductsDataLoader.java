@@ -30,12 +30,12 @@ public class ProductsDataLoader implements CommandLineRunner {
             };
             InputStream inputStream = TypeReference.class.getResourceAsStream(PRODUCTS_JSON);
             Product products = new ObjectMapper().readValue(inputStream, typeReference);
-            products.getProducts().stream().forEach(productData ->
+            products.getProducts().forEach(productData ->
                     productData.getContain_articles().stream().forEach
                             (containedArticles -> productService.createProduct(new com.aeki.ins.model.Product
                                     (UUID.randomUUID().toString(),
-                                            productData.getName(),
-                                            containedArticles.getArt_id(),
+                                            productData.getName().trim(),
+                                            containedArticles.getArt_id().trim(),
                                             containedArticles.getAmount_of()))));
             log.info("Loaded products data successfully");
             inputStream.close();

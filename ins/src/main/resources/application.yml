@@ -28,8 +28,6 @@ server:
   port: 8080
   # Enable graceful shutdown
   shutdown: graceful
-
-
 logging.level:
   org.springframework: INFO
   io.opentracing: TRACE

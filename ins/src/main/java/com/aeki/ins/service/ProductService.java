@@ -2,9 +2,11 @@ package com.aeki.ins.service;
 
 import com.aeki.ins.model.Product;
 import com.aeki.ins.rest.AvailableProducts;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
+import java.util.List;
 
 public interface ProductService {
-    public void createProduct(Product product);
-    public AvailableProducts getProductAvailability(String productName) throws NotImplementedException;
+     void createProduct(Product product);
+     List<AvailableProducts> getAllProductsWithQuantity();
+     void removeProductByName(String productName);
 }

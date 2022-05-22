@@ -34,6 +34,7 @@ public class InventoryDataLoader implements CommandLineRunner {
             inventoryList.inventory.stream().forEach(i ->
                     inventoryService.addArticleToInventory(new Article(i.art_id, i.getName()), i.stock));
             inputStream.close();
+            log.info("Inventory data imported successfully");
         } catch (Exception ex) {
             log.error("Exception while loading inventory data", ex);
         }

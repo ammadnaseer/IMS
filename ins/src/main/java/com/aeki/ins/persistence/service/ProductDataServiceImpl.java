@@ -7,10 +7,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class ProductDataServiceImpl implements ProductDataService {
     private final ProductRepository productRepository;
+
 
     @Autowired
     public ProductDataServiceImpl(ProductRepository productRepository) {
@@ -29,6 +31,11 @@ public class ProductDataServiceImpl implements ProductDataService {
 
     @Override
     public Optional<List<ProductEntity>> getProductByName(String name) {
-        return productRepository.findByProductName(name);
+        return productRepository.findByName(name);
+    }
+
+    @Override
+    public Set<String> allProductNames() {
+        return productRepository.findAllName();
     }
 }
