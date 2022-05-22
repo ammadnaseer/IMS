@@ -5,7 +5,7 @@ Java 1.8
 Gradle 6.8 
 
 ### Running with Gradle Wrapper
-In order to run the project you need to be in /IMS/ins directory. run the project using ./gradlew bootrun
+In order to run the project you need to be in /IMS/ins directory. Run the project using ./gradlew bootrun
 
 ### H2 database
 
